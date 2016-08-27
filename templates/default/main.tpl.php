@@ -17,7 +17,8 @@
     <?php $this->addMainJS("templates/{$this->name}/js/modal.js"); ?>
     <?php $this->addMainJS("templates/{$this->name}/js/messages.js"); ?>
     <?php $this->addMainJS("templates/{$this->name}/js/HTML5_History_API/history.min.js"); ?>
-    <?php $this->addMainJS("templates/{$this->name}/js/HTML5_History_API/history.ielte7.min"); ?>
+    <?php $this->addMainJS("templates/{$this->name}/js/HTML5_History_API/history.ielte7.min.js"); ?>
+    <?php $this->addMainJS("templates/{$this->name}/js/html5api.js"); ?>
 	
     <!--[if lt IE 9]>
         <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
