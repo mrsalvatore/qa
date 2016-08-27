@@ -18,6 +18,7 @@
     <?php $this->addMainJS("templates/{$this->name}/js/messages.js"); ?>
     <?php $this->addMainJS("templates/{$this->name}/js/HTML5_History_API/history.min.js"); ?>
     <?php $this->addMainJS("templates/{$this->name}/js/HTML5_History_API/history.ielte7.min"); ?>
+	
     <!--[if lt IE 9]>
         <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
         <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
