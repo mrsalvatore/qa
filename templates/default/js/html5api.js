@@ -20,15 +20,23 @@ icms.html5api = (function ($) {
         var location = window.history.location || window.location;
 
         // looking for all the links and hang on the event, all references in this document
-        $(document).on('click', 'a', function() {
-          // keep the link in the browser history
-		  console.log(this.href);
-          history.pushState(null, null, this.href);
-		  //icms.html5api.openAjax(this.href, 'test');
-          // here can cause data loading, etc.
+        $(document).on('click', 'a11', function() {
+			// keep the link in the browser history
+			console.log(this.href);
+			// history.pushState(null, null, this.href);
+			//icms.html5api.openAjax(this.href, 'test');
+			// here can cause data loading, etc.
 			
-          // do not give a default action
-          return false;
+			// Getting Content
+            // icms.html5api.getContent(this.href, true);
+			var segments = this.href.split( '/' );
+			var uri = segments[3];
+			var uri_obj = new Object();
+			uri_obj['uri'] = '/' + uri;
+			// console.log(uri);
+            icms.html5api.getContent('/index.php', uri_obj, this.href, true);
+			// do not give a default action
+			return false;
         });
 		
         // hang on popstate event triggered by pressing back/forward in browser
@@ -42,7 +50,24 @@ icms.html5api = (function ($) {
     }
 	
     //====================================================================//
+	this.getContent = function(url, uri, href, addEntry) {
+        $.get(url, uri)
+        .done(function( data ) {
+// console.log(url);
+// console.log(uri);
+// console.log(data);
+            // Updating Content on Page
+            // $('#contentHolder').html(data);
+            $('body').html(data);
 
+            if(addEntry == true) {
+                // Add History Entry using pushState
+                // history.pushState(null, null, url);
+                history.pushState(null, null, href);
+            }
+
+        });
+    }
     //====================================================================//
 
     this.openAjax = function(url, data, open_callback){

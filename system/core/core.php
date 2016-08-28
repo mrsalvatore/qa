@@ -581,10 +581,10 @@ class cmsCore {
     public function route($uri){
 
 		$config = cmsConfig::getInstance();
-
+// var_dump('444', $uri);
         $uri = trim(urldecode($uri));
 		$uri = mb_substr($uri, mb_strlen( $config->root ));
-
+// var_dump('555', $uri);
         if (!$uri) { return; }
 
         // если в URL присутствует знак вопроса, значит есть
@@ -592,7 +592,7 @@ class cmsCore {
         // и добавить в массив $_REQUEST
         $pos_que  = mb_strpos($uri, '?');
         if ($pos_que !== false){
-
+// var_dump('66', $pos_que);
             // получаем строку запроса
             $query_data = array();
             $query_str  = mb_substr($uri, $pos_que+1);
